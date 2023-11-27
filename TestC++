@@ -1,0 +1,131 @@
+#include <iostream>
+#include <string>
+
+class Train {
+private:
+    std::string destination;
+    int trainNumber;
+    std::string departureTime;
+    int totalSeats;
+    int compartmentSeats;
+    int platcSeats;
+
+public:
+    void setDestination(const std::string& dest) {
+        destination = dest;
+    }
+
+    std::string getDestination() const {
+        return destination;
+    }
+
+    void setTrainNumber(const int& number) {
+        trainNumber = number;
+    }
+
+    int getTrainNumber() const {
+        return trainNumber;
+    }
+
+    void setDepartureTime(const std::string& time) {
+        departureTime = time;
+    }
+
+    std::string getDepartureTime() const {
+        return departureTime;
+    }
+
+    void setTotalSeats(const int& seats) {
+        totalSeats = seats;
+    }
+
+    int getTotalSeats() const {
+        return totalSeats;
+    }
+
+    void setCompartmentSeats(const int& seats) {
+        compartmentSeats = seats;
+    }
+
+    int getCompartmentSeats() const {
+        return compartmentSeats;
+    }
+    
+    
+    void setPlatcSeats(const int& seats) {
+        platcSeats = seats;
+    }
+    
+    int getPlatcSeats() const {
+        return platcSeats;
+    }
+
+
+    void show() const {
+        std::cout << "Пункт назначения: " << destination << std::endl;
+        std::cout << "Номер поезда: " << trainNumber << std::endl;
+        std::cout << "Время отправления: " << departureTime << std::endl;
+        std::cout << "Всего мест: " << totalSeats << std::endl;
+        std::cout << "Купейных мест: " << compartmentSeats << std::endl;
+        std::cout << "Плацкартных мест: " << platcSeats << std::endl;
+        std::cout << "------------------------" << std::endl;
+    }
+};
+
+int main() {
+    const int TRAIN_COUNT = 5;
+
+    Train trains[TRAIN_COUNT];
+
+    trains[0].setDestination("Moscow");
+    trains[0].setTrainNumber(123);
+    trains[0].setDepartureTime("12:00");
+    trains[0].setTotalSeats(100);
+    trains[0].setCompartmentSeats(75);
+    trains[0].setPlatcSeats(50);
+
+    trains[1].setDestination("St. Petersburg");
+    trains[1].setTrainNumber(456);
+    trains[1].setDepartureTime("14:00");
+    trains[1].setTotalSeats(150);
+    trains[1].setCompartmentSeats(75);
+    trains[1].setPlatcSeats(50);
+
+    trains[2].setDestination("Kazan");
+    trains[2].setTrainNumber(789);
+    trains[2].setDepartureTime("16:00");
+    trains[2].setTotalSeats(200);
+    trains[2].setCompartmentSeats(100);
+    trains[2].setPlatcSeats(50);
+    
+    trains[3].setDestination("Kazan");
+    trains[3].setTrainNumber(123);
+    trains[3].setDepartureTime("1:00");
+    trains[3].setTotalSeats(100);
+    trains[3].setCompartmentSeats(50);
+    trains[3].setPlatcSeats(50);
+
+    
+    trains[4].setDestination("Moscow");
+    trains[4].setTrainNumber(148);
+    trains[4].setDepartureTime("15:00");
+    trains[4].setTotalSeats(100);
+    trains[4].setCompartmentSeats(50);
+    trains[4].setPlatcSeats(50);
+
+
+
+    std::string destination;
+    std::cout << "Enter the destination: ";
+    std::cin >> destination;
+
+    std::cout << "Trains going to " << destination << ":" << std::endl;
+
+    for (int i = 0; i < TRAIN_COUNT; i++) {
+        if (trains[i].getDestination() == destination) {
+            trains[i].show();
+        }
+    }
+
+    return 0;
+}
